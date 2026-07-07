@@ -1,0 +1,77 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "debug-mingw",
+      "displayName": "Debug - MinGW",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/debug",
+      "environment": {
+        "PATH": "C:/raylib/w64devkit/bin;$penv{PATH}"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER": "C:/raylib/w64devkit/bin/g++.exe",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "release-mingw",
+      "displayName": "Release - MinGW",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "environment": {
+        "PATH": "C:/raylib/w64devkit/bin;$penv{PATH}"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_COMPILER": "C:/raylib/w64devkit/bin/g++.exe",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug-mingw",
+      "displayName": "Build Debug - MinGW",
+      "configurePreset": "debug-mingw",
+      "inheritConfigureEnvironment": true
+    },
+    {
+      "name": "release-mingw",
+      "displayName": "Build Release - MinGW",
+      "configurePreset": "release-mingw",
+      "inheritConfigureEnvironment": true
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "debug",
+      "displayName": "Configure + Build Debug",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "debug-mingw"
+        },
+        {
+          "type": "build",
+          "name": "debug-mingw"
+        }
+      ]
+    },
+    {
+      "name": "release",
+      "displayName": "Configure + Build Release",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "release-mingw"
+        },
+        {
+          "type": "build",
+          "name": "release-mingw"
+        }
+      ]
+    }
+  ]
+}

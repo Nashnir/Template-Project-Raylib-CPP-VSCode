@@ -1,0 +1,32 @@
+# Default: normalize text files in repo
+* text=auto
+
+# C++ source/header files
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.h text eol=lf
+*.c text eol=lf
+
+# CMake files
+CMakeLists.txt text eol=lf
+*.cmake text eol=lf
+CMakePresets.json text eol=lf
+
+# VSCode / JSON
+*.json text eol=lf
+*.code-workspace text eol=lf
+
+# Scripts
+*.ps1 text eol=crlf
+*.sh text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.exe binary
+*.dll binary
+*.lib binary
+*.pdb binary

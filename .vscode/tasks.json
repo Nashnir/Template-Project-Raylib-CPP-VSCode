@@ -1,0 +1,144 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Configure + Build Debug",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--workflow",
+        "--preset",
+        "debug"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    },
+    {
+      "label": "Configure + Build Release",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--workflow",
+        "--preset",
+        "release"
+      ],
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    },
+    {
+      "label": "Build Debug",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "--preset",
+        "debug-mingw"
+      ],
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    },
+    {
+      "label": "Build Release",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "--preset",
+        "release-mingw"
+      ],
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    },
+    {
+      "label": "Clean Build Debug",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "--preset",
+        "debug-mingw",
+        "--clean-first"
+      ],
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    },
+    {
+      "label": "Clean Build Release",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "--preset",
+        "release-mingw",
+        "--clean-first"
+      ],
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    },
+    {
+      "label": "Run Debug",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/debug/Template-Project-Raylib-CPP-VSCode.exe",
+      "dependsOn": "Configure + Build Debug",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    },
+    {
+      "label": "Run Release",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/release/Template-Project-Raylib-CPP-VSCode.exe",
+      "dependsOn": "Configure + Build Release",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/raylib/w64devkit/bin;${env:PATH}"
+        }
+      }
+    }
+  ]
+}

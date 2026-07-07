@@ -1,0 +1,13 @@
+{
+  "cmake.useCMakePresets": "always",
+
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.errorSquiggles": "disabled",
+
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}/build/debug",
+    "--query-driver=C:/raylib/w64devkit/bin/g++.exe",
+    "--background-index",
+    "--header-insertion=never"
+  ]
+}
